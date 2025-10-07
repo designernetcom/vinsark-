@@ -58,6 +58,7 @@
             object-fit: cover;
             border-radius: 25px !important;
         }
+        
     </style>
 
 </head>
@@ -728,24 +729,60 @@
             </section>
 
 <style>
-    .tf-container .tlt-heading {
+/* Default styles (for large screens) */
+.tf-container .tlt-heading {
     color: var(--Text-4);
     font-family: "GlitterySnowfall", sans-serif;
     font-size: 35px;
     line-height: 26px;
     margin-bottom: 16px;
-    margin-top: 135px;
+    margin-top: 250px; /* default for large screens */
 }
 
 .tf-container .line-heading {
-font-size: 45px;
+    font-size: 45px;
     line-height: 55px;
     font-family: "Work Sans", sans-serif;
     color: var(--Text-2);
     font-weight: 700;
 }
 
+/* Medium screens (1064px - 1994px) */
+@media screen and (max-width: 1994px) {
+    .tf-container .tlt-heading {
+        margin-top: 210px;
+    }
+}
+
+/* Tablets / smaller screens (768px - 1064px) */
+@media screen and (max-width: 1064px) {
+    .tf-container .tlt-heading {
+        font-size: 30px;
+        line-height: 24px;
+        margin-top: 150px;
+    }
+
+    .tf-container .line-heading {
+        font-size: 35px;
+        line-height: 45px;
+    }
+}
+
+/* Mobile screens (below 768px) */
+@media screen and (max-width: 767px) {
+    .tf-container .tlt-heading {
+        font-size: 25px;
+        line-height: 22px;
+        margin-top: 120px;
+    }
+
+    .tf-container .line-heading {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
 </style>
+
             
 <section class="s-benefit mt--217">
 
@@ -769,7 +806,7 @@ font-size: 45px;
             </a>
             <p class="text font-nunito">
                The product quality we offer is 100% tested and absolute in every aspect such as dimensional accuracy,
-                design, <br> printing, labelling & packaging.
+                design, printing, labelling & packaging.
             </p>
         </div>
 
@@ -781,7 +818,7 @@ font-size: 45px;
                 Timely Delivery
             </a>
             <p class="text font-nunito">
-               We believe in timely delivery. We have adopted innovative procedures and methods to ensure <br> fast and reliable delivery <br> to our customers & <br> clients.
+               We believe in timely delivery. We have adopted innovative procedures and methods to ensure fast and reliable delivery to our customers & clients.
             </p>
         </div>
 
@@ -793,7 +830,7 @@ font-size: 45px;
                 Packaging
             </a>
             <p class="text font-nunito">
-             We provide good quality and reliable protective packaging material to ensure complete protection and safe handling of the products during transit and delivery.
+             We provide good quality and reliable protective packaging material to ensure complete protection and safe handling of the products during transit.
             </p>
         </div>
 
@@ -801,10 +838,10 @@ font-size: 45px;
             <div class="icon mb-29 hover-icon style-circle">
                 <img src="https://cdn-icons-png.flaticon.com/512/1235/1235352.png" alt="">
             </div>
-            <a class="caption fw-6 mb-17 font-worksans hover-text-secondary">
+            <a class="caption fw-6 mb-17 font-worksans hover-text-secondary" >
                 Labeling
             </a>
-            <p class="text font-nunito">
+            <p class="text font-nunito" style="    margin-bottom: -28px;">
                Our Packaging includes precise labeling procedures with content and index we do also provide an easy
     understandable instruction panel with recipe preparation.
             </p>
@@ -824,6 +861,64 @@ font-size: 45px;
 
     </div>
 </section>
+
+
+<style>
+/* Center the container */
+.center-section {
+    max-width: 1200px; /* or any width you want */
+    margin: 0 auto; /* centers horizontally */
+}
+
+/* Common card styles */
+.image.hover-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px !important;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.overlay-text {
+    color: #ffffff;
+    text-align: center;
+    max-width: 80%;
+}
+
+/* Specific card backgrounds */
+.mission-card {
+    background-color: #064e3b;
+}
+
+.vision-card {
+    background-color: #064e3b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .image.hover-item {
+        height: 350px;
+        padding: 15px;
+    }
+    .overlay-text {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 575px) {
+    .image.hover-item {
+        height: 300px;
+        padding: 10px;
+    }
+    .overlay-text {
+        max-width: 95%;
+        font-size: 14px;
+    }
+}
+
+
+</style>
 
 
 
@@ -873,56 +968,58 @@ font-size: 45px;
                 <div class="swiper-wrapper">
 
                     <!-- Slide 1 -->
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <div class="gallery-item img-hover wow fadeInUp" data-wow-delay="0s">
                             <div class="image hover-item">
                                 <img class="lazyload blur-image" src="images/about/side-img-3.avif" data-src="images/about/side-img-3.avif" alt="">
                                 <div class="black-overlay"></div>
-                                <div class="overlay-text">Our Mission</div>
+                                <div class="overlay-text"></div>
                             </div>
 
 
+                        </div>
+                    </div> -->
+
+                     <!-- Slide 3 -->
+                     <div class="swiper-slide">
+                        <div class="gallery-item img-hover wow fadeInUp" data-wow-delay="0s">
+                            <div class="image hover-item mission-card">
+                                <div class="overlay-text">
+                                    <h3 style=" color: #fff; line-height: 70px;">Our Mission</h3>
+                                    <p style="text-align: justify; padding-bottom: 18px;">Our mission is to keep our cultural taste alive to provide a delicious and healthy meal course at your
+ease. VFPL wishes to make your meal healthy, delicious and aromatic. A healthy meal with diverse taste
+and benefits.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Slide 2 -->
                     <div class="swiper-slide">
                         <div class="gallery-item img-hover wow fadeInUp" data-wow-delay="0s">
-                            <div class="image hover-item">
-                                <img class="lazyload blur-image" src="images/about/side-img.jpg"
-                                    data-src="images/about/side-img.jpg" alt="">
-                                    <div class="black-overlay"></div>
-                                <div class="overlay-text">Our mission is to keep our cultural taste alive to provide a delicious and healthy meal course at your
-ease. VFPL wishes to make your meal healthy, delicious and aromatic. A healthy meal with diverse taste
-and benefits.</div>
+                            <div class="image hover-item vision-card">
+                                <div class="overlay-text">
+                                    <h3 style="    margin-top: -75px; color: #fff; line-height: 70px;">Our Vision</h3>
+                                    <p style="text-align: justify;">Our vision is to deliver high-quality and protein rich food products that brings flavor and nutrition to
+everyday meal. A promise to deliver best Meal at your table.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 3 -->
-                    <div class="swiper-slide">
-                        <div class="gallery-item img-hover wow fadeInUp" data-wow-delay="0s">
-                            <div class="image hover-item">
-                                <img class="lazyload blur-image" src="images/about/blog3.jpg"
-                                    data-src="images/about/blog3.jpg" alt="">
-                                    <div class="black-overlay"></div>
-                                <div class="overlay-text">Our Vision</div>
-                            </div>
-                        </div>
-                    </div>
+                   
 
                     <!-- Slide 4 -->
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <div class="gallery-item img-hover wow fadeInUp" data-wow-delay="0s">
                             <div class="image hover-item">
                                 <img class="lazyload blur-image" src="images/about/blog4.jpg"
                                     data-src="images/about/blog4.jpg" alt="">
                                     <div class="black-overlay"></div>
-                                <div class="overlay-text">Our vision is to deliver high-quality and protein rich food products that brings flavor and nutrition to
-everyday meal. A promise to deliver best Meal at your table.</div>
+                                <div class="overlay-text"></div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -997,6 +1094,12 @@ everyday meal. A promise to deliver best Meal at your table.</div>
 
 
             <style>
+                .swiper-wrapper {
+    transform: translate3d(0px, 0, 0);
+    display: flex;
+    justify-content: center;
+    
+}
 
 /* Default swiper (desktop/laptop) will remain horizontal */
 
@@ -1036,7 +1139,7 @@ everyday meal. A promise to deliver best Meal at your table.</div>
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(0 0 0 / 62%); /* Adjust opacity for darker or lighter */
+    /* background-color: rgb(0 0 0 / 62%);  */
     z-index: 1;
 }
 
@@ -1276,16 +1379,49 @@ everyday meal. A promise to deliver best Meal at your table.</div>
                 </div>
             </section> -->
 
+
+<style>
+    .img-sec img {
+    /* width: 100%;       */
+    max-width: 600px;       /* Max width for large screens */
+    height: 80%;          
+    object-fit: cover;
+    border-radius: 25px !important;
+    display: block;         /* Removes inline spacing */
+}
+
+/* Medium screens */
+@media screen and (max-width: 1064px) {
+    .img-sec img {
+        /* max-width: 500px;    */
+        border-radius: 20px; /* Slightly smaller radius */
+    }
+}
+
+/* Small screens / mobile */
+@media screen and (max-width: 767px) {
+    .img-sec img {
+        max-width: 100%;     
+        height: auto; 
+        border-radius: 15px; /* Smaller radius for mobile */
+    }
+}
+</style>
+
+
+
             <!-- Section our history -->
             <section class="s-our-history has-img-item tf-pt-0">
                 <div class="tf-container w-1620">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="content-section">
+                                
                                 <div class="img-sec rounded">
                                     <img src="images/about/journey-ahead.avif" data-src="images/about/journey-ahead.avif"
                                         alt="" class="img-fluid lazyload rounded-2">
                                 </div>
+                                
                                 <div class="heading-section style-4 has-text style-3">
                                     <div class="img-item">
                                         <div class="item">
@@ -1304,20 +1440,7 @@ everyday meal. A promise to deliver best Meal at your table.</div>
                                     </p>
                                       <p class="text" style="text-align: justify;">
                                       Our goal is to capture a larger market share by offering competitive pricing, uncompromised quality, and trusted producer partnerships. Beyond business growth, we are committed to building long-term value through transparency, innovation, and sustainable sourcing practices. Looking ahead, Vinsark Foods envisions becoming a household name by expanding our product portfolio, strengthening our distribution networks, and investing in advanced technologies to streamline supply chain efficiency. With a focus on customer trust and farmer empowerment, we aim to redefine how agri-commodities are delivered, consumed, and valued in India and beyond
-                                    <!--<a class="tf-btn bg-white wow fadeInUp" data-wow-delay="0s">-->
-                                    <!--    <span class="text-style cl-primary">-->
-                                    <!--        Read More-->
-                                    <!--    </span>-->
-                                    <!--    <div class="icon">-->
-                                    <!--        <i class="icon-arrow_right"></i>-->
-                                    <!--    </div>-->
-                                    <!--</a>-->
-                                    <!-- <div class="wg-exprerience text-center z-5 tf-rotate-back-and-forth">
-                                        <p class="year">65</p>
-                                        <p class="text">
-                                            Years Of <br> Experience
-                                        </p>
-                                    </div> -->
+                            
                                 </div>
                             </div>
                         </div>
