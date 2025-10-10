@@ -3345,7 +3345,7 @@ a.text-white {
   font-size: 16px;
   font-family: "Work Sans", sans-serif;
   overflow: hidden;
-  margin-bottom: 38px;
+  margin-bottom: 60px;
 }
 .tf-btn.gap-37 {
   gap: 37px;
@@ -9149,7 +9149,7 @@ i.fs-12 {
   color: var(--Bg-6);
 }
 .box-icon .caption {
-  color: var(--White);
+  color: var(--White);top: -60px;
   font-size: 20px;
   margin-bottom: 20px;
 }
@@ -9158,8 +9158,8 @@ i.fs-12 {
 }
 .box-icon .text {
  color: var(--Text-3);
-    text-align: justify;
-    padding: 12px;
+    /* text-align: justify; */
+    padding: 0px;
 }
 .box-icon.style-2 {
   max-width: 410px;
@@ -11298,6 +11298,7 @@ i.fs-12 {
 /*------------ sections ---------------- */
 .main-content.pb-0 {
   padding-bottom: 0px;
+      margin-bottom: -129px;
 }
 .main-content.pt-0 {
   padding-top: 0px;
@@ -14487,7 +14488,7 @@ padding: 80px 0px 106px;
 }
 .s-welcome-to .s-content-wrap .s-img-item.item-1 img {
     width: 100%;        /* Take full width of container */
-    max-width: 1725px;   /* Maximum width on large screens */
+    max-width: 1790px;   /* Maximum width on large screens */
     height: auto;       /* Maintain aspect ratio */
     display: block;     /* Remove inline spacing */
 }
@@ -14495,9 +14496,16 @@ padding: 80px 0px 106px;
 /* Optional: adjust for extra-large screens */
 @media screen and (min-width: 1994px) {
     .s-welcome-to .s-content-wrap .s-img-item.item-1 img {
-        max-width: 96%; /* Slightly smaller than container for huge screens */
+        max-width: 1900px; /* Slightly smaller than container for huge screens */
     }
 }
+
+/* @media screen and (min-width: 1880px) {
+    .s-welcome-to .s-content-wrap .s-img-item.item-1 img {
+        max-width: 1790px;
+    }
+} */
+
 
 .s-welcome-to .s-content-wrap-2 {
   position: relative;
@@ -14527,10 +14535,11 @@ padding: 80px 0px 106px;
 }
 
 .s-our-history {
-  background-color: var(--Bg-6);
-  padding-top: 53px;
-  padding-bottom: 53px;
-  margin-top: 0;
+    background-color: var(--Bg-6);
+    padding-top: 130px;
+    padding-bottom: 53px;
+    margin-top: 0;
+    top: -60px;
 }
 .s-our-history .img-item {
   margin-bottom: 16px;
