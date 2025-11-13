@@ -918,42 +918,232 @@
                                     }
                                 </style>
 
+
+  <style>
+    /* .card {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    } */
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    } */
+
+    /* .card h3 {
+      margin: 10px 0;
+      padding: 10px;
+      color: #333;
+    } */
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Popup Box - Modern Glass Style */
+    .popup-content {
+      background: rgb(0 0 0 / 20%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 380px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      animation: popupOpen 0.4s forwards;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+      color: #fff;
+    }
+
+    @keyframes popupOpen {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .popup-content p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #000;
+    }
+  </style>
+
+
                                 <div class="cards-container">
-                                    <div class="card">
-                                        <img src="https://cdn.shopaccino.com/edible-smart/products/besan-722850_l.jpg?v=600"
-                                            alt="Golden Retriever" class="card-image">
-                                        <h3 class="card-name">Besan </h3>
-                                    </div>
+                                      <!-- Besan -->
+  <div class="card" id="besanCard">
+    <img src="https://cdn.shopaccino.com/edible-smart/products/besan-722850_l.jpg?v=600" alt="Besan" class="card-image">
+    <h3 class="card-name">Besan</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://st2.depositphotos.com/3901147/8386/i/450/depositphotos_83866280-stock-photo-corn-flour-and-corn-on.jpg"
-                                            alt="Persian Cat" class="card-image">
-                                        <h3 class="card-name">Corn Flour</h3>
-                                    </div>
+  <!-- Corn Flour -->
+  <div class="card" id="cornCard">
+    <img src="https://st2.depositphotos.com/3901147/8386/i/450/depositphotos_83866280-stock-photo-corn-flour-and-corn-on.jpg" alt="Corn Flour" class="card-image">
+    <h3 class="card-name">Corn Flour</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://static.toiimg.com/photo/102473580.cms" alt="Parrot"
-                                            class="card-image">
-                                        <h3 class="card-name">Maida </h3>
-                                    </div>
+  <!-- Maida -->
+  <div class="card" id="maidaCard">
+    <img src="https://static.toiimg.com/photo/102473580.cms" alt="Maida" class="card-image">
+    <h3 class="card-name">Maida</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCuU5FFNU59BEuydh8MOrLbw_Z5ZduLaOj-A&s"
-                                            alt="Rabbit" class="card-image">
-                                        <h3 class="card-name">Rava</h3>
-                                    </div>
+  <!-- Rava -->
+  <div class="card" id="ravaCard">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCuU5FFNU59BEuydh8MOrLbw_Z5ZduLaOj-A&s" alt="Rava" class="card-image">
+    <h3 class="card-name">Rava</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFkdAMiicZgmjT67Xjc_SnYvBHoV3VCvVynw&s"
-                                            alt="Hamster" class="card-image">
-                                        <h3 class="card-name">Rice Flour</h3>
-                                    </div>
+  <!-- Rice Flour -->
+  <div class="card" id="riceCard">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFkdAMiicZgmjT67Xjc_SnYvBHoV3VCvVynw&s" alt="Rice Flour" class="card-image">
+    <h3 class="card-name">Rice Flour</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQmswmO8r_KgcZNz3rkW5-3U4BnZuH8TunbQ&s"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Wheat Atta</h3>
-                                    </div>
+  <!-- Wheat Atta -->
+  <div class="card" id="wheatCard">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQmswmO8r_KgcZNz3rkW5-3U4BnZuH8TunbQ&s" alt="Wheat Atta" class="card-image">
+    <h3 class="card-name">Wheat Atta</h3>
+  </div>
+
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="besanPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://cdn.shopaccino.com/edible-smart/products/besan-722850_l.jpg?v=600" alt="Besan">
+      <h2>Besan</h2>
+      <p>Besan, or gram flour, is made from ground chickpeas. It is high in protein and fiber and supports healthy skin and digestion.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="cornPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://st2.depositphotos.com/3901147/8386/i/450/depositphotos_83866280-stock-photo-corn-flour-and-corn-on.jpg" alt="Besan">
+      <h2>Corn Flour</h2>
+      <p>Corn Flour is a smooth, gluten-free flour made from maize. It is rich in carbohydrates and used to thicken soups, sauces, and desserts.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="maidaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://static.toiimg.com/photo/102473580.cms" alt="Besan">
+      <h2>Maida</h2>
+      <p>Maida is refined wheat flour used in baking and snacks. It provides energy and gives a soft, fluffy texture to baked goods.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="ravaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCuU5FFNU59BEuydh8MOrLbw_Z5ZduLaOj-A&s" alt="Besan">
+      <h2>Rava</h2>
+      <p>Rava, also called semolina, is made from durum wheat. It is rich in iron and fiber, promoting better digestion and energy levels.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="ricePopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFkdAMiicZgmjT67Xjc_SnYvBHoV3VCvVynw&s" alt="Besan">
+      <h2>Rice Flour</h2>
+      <p>Rice Flour is a fine, gluten-free flour used in sweets and snacks. It helps improve digestion and is great for light, crispy batters.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="wheatPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQmswmO8r_KgcZNz3rkW5-3U4BnZuH8TunbQ&s" alt="Besan">
+      <h2>Wheat Atta</h2>
+      <p>Wheat Atta is whole wheat flour rich in fiber and nutrients. It supports digestion, boosts energy, and is a staple in healthy diets.</p>
+    </div>
+  </div>
+
+  <!-- JS FUNCTIONALITY -->
+  <script>
+    const cards = [
+      { card: 'besanCard', popup: 'besanPopup' },
+      { card: 'cornCard', popup: 'cornPopup' },
+      { card: 'maidaCard', popup: 'maidaPopup' },
+      { card: 'ravaCard', popup: 'ravaPopup' },
+      { card: 'riceCard', popup: 'ricePopup' },
+      { card: 'wheatCard', popup: 'wheatPopup' }
+    ];
+
+    cards.forEach(({ card, popup }) => {
+      const cardEl = document.getElementById(card);
+      const popupEl = document.getElementById(popup);
+      const closeBtn = popupEl.querySelector('.close-btn');
+
+      cardEl.addEventListener('click', () => popupEl.classList.add('active'));
+      closeBtn.addEventListener('click', () => popupEl.classList.remove('active'));
+      popupEl.addEventListener('click', e => {
+        if (e.target === popupEl) popupEl.classList.remove('active');
+      });
+    });
+  </script>
 
                                     <!-- <div class="card">
                                         <img src="https://5.imimg.com/data5/ANDROID/Default/2022/3/HX/KJ/EH/112366967/product-jpeg.jpg"
@@ -1082,25 +1272,12 @@
                                 </h5>
                                 <div class="sb-content">
                                     <ul class="category-list">
-                                        <li class="item">
-                                            <a href="#cards-section">Besan</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#cards-section">corn flour</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#cards-section">Maida</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#cards-section">Rava
-                                            </a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#cards-section">Rice Flour</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#cards-section">Wheat Atta </a>
-                                        </li>
+                                        <li class="item"><a href="#" id="besanLink">Besan</a></li>
+                                        <li class="item"><a href="#" id="cornFlourLink">Corn Flour</a></li>
+                                        <li class="item"><a href="#" id="maidaLink">Maida</a></li>
+                                        <li class="item"><a href="#" id="ravaLink">Rava</a></li>
+                                        <li class="item"><a href="#" id="riceFlourLink">Rice Flour</a></li>
+                                        <li class="item"><a href="#" id="wheatAttaLink">Wheat Atta</a></li>
                                         <!-- <li class="item">
                                             <a href="#cards-section">Pusa
                                                 1509 Basmati Rice</a>
@@ -1109,6 +1286,95 @@
                                     </ul>
                                 </div>
                             </div>
+
+
+<!-- POPUPS -->
+<div class="popup-overlay" id="besanPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://cdn.shopaccino.com/edible-smart/products/besan-722850_l.jpg?v=600" alt="Besan">
+      <h2>Besan</h2>
+      <p>Besan, or gram flour, is made from ground chickpeas. It is high in protein and fiber and supports healthy skin and digestion.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="cornFlourPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://st2.depositphotos.com/3901147/8386/i/450/depositphotos_83866280-stock-photo-corn-flour-and-corn-on.jpg" alt="Besan">
+      <h2>Corn Flour</h2>
+      <p>Corn Flour is a smooth, gluten-free flour made from maize. It is rich in carbohydrates and used to thicken soups, sauces, and desserts.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="maidaPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://static.toiimg.com/photo/102473580.cms" alt="Besan">
+      <h2>Maida</h2>
+      <p>Maida is refined wheat flour used in baking and snacks. It provides energy and gives a soft, fluffy texture to baked goods.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="ravaPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCuU5FFNU59BEuydh8MOrLbw_Z5ZduLaOj-A&s" alt="Besan">
+      <h2>Rava</h2>
+      <p>Rava, also called semolina, is made from durum wheat. It is rich in iron and fiber, promoting better digestion and energy levels.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="riceFlourPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFkdAMiicZgmjT67Xjc_SnYvBHoV3VCvVynw&s" alt="Besan">
+      <h2>Rice Flour</h2>
+      <p>Rice Flour is a fine, gluten-free flour used in sweets and snacks. It helps improve digestion and is great for light, crispy batters.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="wheatAttaPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQmswmO8r_KgcZNz3rkW5-3U4BnZuH8TunbQ&s" alt="Besan">
+      <h2>Wheat Atta</h2>
+      <p>Wheat Atta is whole wheat flour rich in fiber and nutrients. It supports digestion, boosts energy, and is a staple in healthy diets.</p>
+  </div>
+</div>
+
+
+<!-- JS FUNCTIONALITY -->
+<script>
+  const flours = [
+    { link: 'besanLink', popup: 'besanPopup' },
+    { link: 'cornFlourLink', popup: 'cornFlourPopup' },
+    { link: 'maidaLink', popup: 'maidaPopup' },
+    { link: 'ravaLink', popup: 'ravaPopup' },
+    { link: 'riceFlourLink', popup: 'riceFlourPopup' },
+    { link: 'wheatAttaLink', popup: 'wheatAttaPopup' }
+  ];
+
+  flours.forEach(({ link, popup }) => {
+    const linkEl = document.getElementById(link);
+    const popupEl = document.getElementById(popup);
+    const closeBtn = popupEl.querySelector('.close-btn');
+
+    linkEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      popupEl.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => popupEl.classList.remove('active'));
+
+    popupEl.addEventListener('click', (e) => {
+      if (e.target === popupEl) popupEl.classList.remove('active');
+    });
+  });
+</script>
+
+
+
 <div class="offer-box">
     <div class="offer-list">
         <div class="offer-wrap wow fadeInUp" data-wow-delay="0s">

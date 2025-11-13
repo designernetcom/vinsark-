@@ -876,91 +876,394 @@ Our whole spices are more than just ingredients – they are the essence of auth
                                     }
                                 </style>
 
+
+  <style>
+    /* .card {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    } */
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    } */
+
+    /* .card h3 {
+      margin: 10px 0;
+      padding: 10px;
+      color: #333;
+    } */
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Popup Box - Modern Glass Style */
+    .popup-content {
+      background: rgb(0 0 0 / 20%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 380px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      animation: popupOpen 0.4s forwards;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+      color: #fff;
+    }
+
+    @keyframes popupOpen {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .popup-content p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #000;
+    }
+  </style>
+
+
+
                                 <div class="cards-container">
-                                    <div class="card">
-                                        <img src="https://img.clevup.in/347649/cumin-seeds-jeera-50g-1707728421549_SKU-0284_0.jpeg?width=600&format=webp"
-                                            alt="Golden Retriever" class="card-image">
-                                        <h3 class="card-name">Jeera / Cumin</h3>
-                                    </div>
+                                      <!-- Jeera -->
+  <div class="card" id="jeeraCard">
+    <img src="https://img.clevup.in/347649/cumin-seeds-jeera-50g-1707728421549_SKU-0284_0.jpeg?width=600&format=webp" alt="Jeera" class="card-image">
+    <h3 class="card-name">Jeera / Cumin</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_KUUDUZfa84HyxkOo9mGjBhvRjTXQbHk9OCZIPsuYi32RuhbifyAm0uFr5z58jpggMYU&usqp=CAU"
-                                            alt="Persian Cat" class="card-image">
-                                        <h3 class="card-name">Mustard</h3>
-                                    </div>
+  <!-- Mustard -->
+  <div class="card" id="mustardCard">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_KUUDUZfa84HyxkOo9mGjBhvRjTXQbHk9OCZIPsuYi32RuhbifyAm0uFr5z58jpggMYU&usqp=CAU" alt="Mustard" class="card-image">
+    <h3 class="card-name">Mustard</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://plantura.garden/uk/wp-content/uploads/sites/2/2022/04/fenugreek-seeds-leaves.jpg"
-                                            alt="Parrot" class="card-image">
-                                        <h3 class="card-name">Fenugreek</h3>
-                                    </div>
+  <!-- Fenugreek -->
+  <div class="card" id="fenugreekCard">
+    <img src="https://plantura.garden/uk/wp-content/uploads/sites/2/2022/04/fenugreek-seeds-leaves.jpg" alt="Fenugreek" class="card-image">
+    <h3 class="card-name">Fenugreek</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://perfarmersglobal.in/wp-content/uploads/2023/10/sesameseeds2x-58a4b41c3df78c4758d5c507.jpg"
-                                            alt="Rabbit" class="card-image">
-                                        <h3 class="card-name">Sesame seed</h3>
-                                    </div>
+  <!-- Sesame -->
+  <div class="card" id="sesameCard">
+    <img src="https://perfarmersglobal.in/wp-content/uploads/2023/10/sesameseeds2x-58a4b41c3df78c4758d5c507.jpg" alt="Sesame Seed" class="card-image">
+    <h3 class="card-name">Sesame Seed</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://m.media-amazon.com/images/I/5139r1proeL._UF1000,1000_QL80_.jpg"
-                                            alt="Hamster" class="card-image">
-                                        <h3 class="card-name">Kali Miri / Black Pepper</h3>
-                                    </div>
+  <!-- Black Pepper -->
+  <div class="card" id="pepperCard">
+    <img src="https://m.media-amazon.com/images/I/5139r1proeL._UF1000,1000_QL80_.jpg" alt="Black Pepper" class="card-image">
+    <h3 class="card-name">Kali Miri / Black Pepper</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://indiacuisine.net/cdn/shop/products/cardamon.png?v=1680018520"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Elaichi / Cardamom</h3>
-                                    </div>
+  <!-- Elaichi -->
+  <div class="card" id="elaichiCard">
+    <img src="https://indiacuisine.net/cdn/shop/products/cardamon.png?v=1680018520" alt="Elaichi" class="card-image">
+    <h3 class="card-name">Elaichi / Cardamom</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://tildaricelive.s3.eu-central-1.amazonaws.com/wp-content/uploads/2022/01/18135455/Cloves%402440x1200px-1024x504.jpg"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Cloves</h3>
-                                    </div>
+  <!-- Cloves -->
+  <div class="card" id="clovesCard">
+    <img src="https://tildaricelive.s3.eu-central-1.amazonaws.com/wp-content/uploads/2022/01/18135455/Cloves%402440x1200px-1024x504.jpg" alt="Cloves" class="card-image">
+    <h3 class="card-name">Cloves</h3>
+  </div>
 
-                                      <div class="card">
-                                        <img src="https://vibrantliving.in/cdn/shop/files/FennelSeeds.png?v=1731060016&width=2048"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Fennel Seeds</h3>
-                                    </div>
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="jeeraPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://img.clevup.in/347649/cumin-seeds-jeera-50g-1707728421549_SKU-0284_0.jpeg?width=600&format=webp" alt="Jeera / Cumin">
+      <h2>Jeera / Cumin</h2>
+      <p>Jeera, or Cumin, is a popular spice rich in antioxidants. It aids digestion, boosts metabolism, and enhances flavor in Indian dishes.</p>
+    </div>
+  </div>
 
-                                      <div class="card">
-                                        <img src="https://www.greendna.in/cdn/shop/products/cumin1_1000x.jpg?v=1561041488"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Cumin Seed</h3>
-                                    </div>
+  <div class="popup-overlay" id="mustardPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_KUUDUZfa84HyxkOo9mGjBhvRjTXQbHk9OCZIPsuYi32RuhbifyAm0uFr5z58jpggMYU&usqp=CAU" alt="Jeera / Cumin">
+      <h2>Mustard</h2>
+      <p>Mustard seeds are packed with omega-3 fatty acids, calcium, and iron. They help improve digestion and give a tangy flavor to food.</p>
+    </div>
+  </div>
 
-                                      <div class="card">
-                                        <img src="https://vibrantliving.in/cdn/shop/files/Ajwain_Vaamu.png?v=1731059876&width=2048"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Ajwain</h3>
-                                    </div>
-                                      <div class="card">
-                                        <img src="https://chakkiwalle.com/cdn/shop/files/933ac7d613205debc48509c92d38635e.jpg?v=1707830752"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Dhaniya</h3>
-                                    </div>
-                                      <div class="card">
-                                        <img src="https://m.media-amazon.com/images/I/51sRLeTmK5L._AC_SY350_QL15_.jpg"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Mirchi Teja</h3>
-                                    </div>
-                                     <div class="card">
-                                        <img src="https://m.media-amazon.com/images/I/61nf90lbP3L._UF1000,1000_QL80_.jpg"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Mirchi Kashmiri dulex</h3>
-                                    </div>
-                                     <div class="card">
-                                        <img src="https://image.made-in-china.com/2f0j00FUOqCtmMCEzY/Nutrient-Rich-Sesame-Roasted-Black-Sesame-Seeds.jpg"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Sesame seed Black</h3>
-                                    </div>
-                                      <div class="card">
-                                        <img src="https://www.jiomart.com/images/product/original/rvhpyrw4n0/marwar-kashmiri-red-chilli-whole-dry-lal-mirchi-sabut-800-grams-product-images-orvhpyrw4n0-p592272204-0-202504011539.jpg?im=Resize=(420,420)"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Mirchi Kashmiri</h3>
-                                    </div>
+  <div class="popup-overlay" id="fenugreekPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://plantura.garden/uk/wp-content/uploads/sites/2/2022/04/fenugreek-seeds-leaves.jpg" alt="Jeera / Cumin">
+      <h2>Fenugreek</h2>
+      <p>Fenugreek (Methi) seeds support blood sugar control, digestion, and hair health. They add a slightly bitter yet aromatic flavor.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="sesamePopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://perfarmersglobal.in/wp-content/uploads/2023/10/sesameseeds2x-58a4b41c3df78c4758d5c507.jpg" alt="Jeera / Cumin">
+      <h2>Sesame Seed</h2>
+      <p>Sesame seeds are rich in healthy fats and calcium. They support bone strength and are commonly used in snacks and sweets.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="pepperPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://m.media-amazon.com/images/I/5139r1proeL._UF1000,1000_QL80_.jpg" alt="Jeera / Cumin">
+      <h2>Kali Miri / Black Pepper</h2>
+      <p>Black Pepper is the “King of Spices.” It aids digestion, enhances nutrient absorption, and adds a sharp flavor to every dish.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="elaichiPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://indiacuisine.net/cdn/shop/products/cardamon.png?v=1680018520" alt="Jeera / Cumin">
+      <h2>Elaichi / Cardamom</h2>
+      <p>Cardamom has a sweet aroma and refreshing taste. It improves oral health, aids digestion, and adds richness to desserts and teas.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="clovesPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://tildaricelive.s3.eu-central-1.amazonaws.com/wp-content/uploads/2022/01/18135455/Cloves%402440x1200px-1024x504.jpg" alt="Jeera / Cumin">
+      <h2>Cloves</h2>
+      <p>Cloves are aromatic flower buds with antiseptic properties. They aid dental health, digestion, and add warmth to savory dishes.</p>
+    </div>
+  </div>
+
+  <!-- JS FUNCTIONALITY -->
+
+
+                                        <!-- Fennel Seeds -->
+  <div class="card" id="fennelCard">
+    <img src="https://vibrantliving.in/cdn/shop/files/FennelSeeds.png?v=1731060016&width=2048" alt="Fennel Seeds" class="card-image">
+    <h3 class="card-name">Fennel Seeds</h3>
+  </div>
+
+  <!-- Cumin Seed -->
+  <div class="card" id="cuminCard">
+    <img src="https://www.greendna.in/cdn/shop/products/cumin1_1000x.jpg?v=1561041488" alt="Cumin Seed" class="card-image">
+    <h3 class="card-name">Cumin Seed</h3>
+  </div>
+
+  <!-- Ajwain -->
+  <div class="card" id="ajwainCard">
+    <img src="https://vibrantliving.in/cdn/shop/files/Ajwain_Vaamu.png?v=1731059876&width=2048" alt="Ajwain" class="card-image">
+    <h3 class="card-name">Ajwain</h3>
+  </div>
+
+  <!-- Dhaniya -->
+  <div class="card" id="dhaniyaCard">
+    <img src="https://chakkiwalle.com/cdn/shop/files/933ac7d613205debc48509c92d38635e.jpg?v=1707830752" alt="Dhaniya" class="card-image">
+    <h3 class="card-name">Dhaniya</h3>
+  </div>
+
+  <!-- Mirchi Teja -->
+  <div class="card" id="mirchiTejaCard">
+    <img src="https://m.media-amazon.com/images/I/51sRLeTmK5L._AC_SY350_QL15_.jpg" alt="Mirchi Teja" class="card-image">
+    <h3 class="card-name">Mirchi Teja</h3>
+  </div>
+
+  <!-- Mirchi Kashmiri Deluxe -->
+  <div class="card" id="mirchiKashmiriDeluxeCard">
+    <img src="https://m.media-amazon.com/images/I/61nf90lbP3L._UF1000,1000_QL80_.jpg" alt="Mirchi Kashmiri Deluxe" class="card-image">
+    <h3 class="card-name">Mirchi Kashmiri Deluxe</h3>
+  </div>
+
+  <!-- Black Sesame -->
+  <div class="card" id="blackSesameCard">
+    <img src="https://image.made-in-china.com/2f0j00FUOqCtmMCEzY/Nutrient-Rich-Sesame-Roasted-Black-Sesame-Seeds.jpg" alt="Black Sesame" class="card-image">
+    <h3 class="card-name">Sesame Seed Black</h3>
+  </div>
+
+  <!-- Mirchi Kashmiri -->
+  <div class="card" id="mirchiKashmiriCard">
+    <img src="https://www.jiomart.com/images/product/original/rvhpyrw4n0/marwar-kashmiri-red-chilli-whole-dry-lal-mirchi-sabut-800-grams-product-images-orvhpyrw4n0-p592272204-0-202504011539.jpg?im=Resize=(420,420)" alt="Mirchi Kashmiri" class="card-image">
+    <h3 class="card-name">Mirchi Kashmiri</h3>
+  </div>
+
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="fennelPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Fennel Seeds</h2>
+      <p>Fennel seeds are aromatic and sweet in flavor. They aid digestion, refresh the mouth, and reduce bloating after meals.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="cuminPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Cumin Seed</h2>
+      <p>Cumin seeds are rich in antioxidants and iron. They enhance food flavor and support healthy digestion.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="ajwainPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Ajwain</h2>
+      <p>Ajwain seeds have a strong aroma and help relieve indigestion, acidity, and cold-related discomfort.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="dhaniyaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Dhaniya</h2>
+      <p>Dhaniya (Coriander Seeds) are aromatic and cooling. They support digestion and add freshness to dishes.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="mirchiTejaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Mirchi Teja</h2>
+      <p>Mirchi Teja is known for its bright red color and intense spice. It enhances flavor and adds heat to Indian recipes.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="mirchiKashmiriDeluxePopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Mirchi Kashmiri Deluxe</h2>
+      <p>Kashmiri Deluxe Chillies are mildly spicy and deep red. They are perfect for color and gentle flavor in curries.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="blackSesamePopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Sesame Seed Black</h2>
+      <p>Black Sesame Seeds are nutrient-rich and boost skin and hair health. They are used in sweets and spice mixes.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="mirchiKashmiriPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Mirchi Kashmiri</h2>
+      <p>Kashmiri Red Chillies offer vibrant color and mild heat, making them ideal for gravies, sauces, and masalas.</p>
+    </div>
+  </div>
+
+  <!-- JS FUNCTIONALITY -->
+<script>
+  const allCards = [
+    // First group
+    { card: 'jeeraCard', popup: 'jeeraPopup' },
+    { card: 'mustardCard', popup: 'mustardPopup' },
+    { card: 'fenugreekCard', popup: 'fenugreekPopup' },
+    { card: 'sesameCard', popup: 'sesamePopup' },
+    { card: 'pepperCard', popup: 'pepperPopup' },
+    { card: 'elaichiCard', popup: 'elaichiPopup' },
+    { card: 'clovesCard', popup: 'clovesPopup' },
+
+    // Second group
+    { card: 'fennelCard', popup: 'fennelPopup' },
+    { card: 'cuminCard', popup: 'cuminPopup' },
+    { card: 'ajwainCard', popup: 'ajwainPopup' },
+    { card: 'dhaniyaCard', popup: 'dhaniyaPopup' },
+    { card: 'mirchiTejaCard', popup: 'mirchiTejaPopup' },
+    { card: 'mirchiKashmiriDeluxeCard', popup: 'mirchiKashmiriDeluxePopup' },
+    { card: 'blackSesameCard', popup: 'blackSesamePopup' },
+    { card: 'mirchiKashmiriCard', popup: 'mirchiKashmiriPopup' }
+  ];
+
+  allCards.forEach(({ card, popup }) => {
+    const cardEl = document.getElementById(card);
+    const popupEl = document.getElementById(popup);
+
+    // Skip if either element not found
+    if (!cardEl || !popupEl) return;
+
+    const closeBtn = popupEl.querySelector('.close-btn');
+
+    // Show popup
+    cardEl.addEventListener('click', () => popupEl.classList.add('active'));
+
+    // Close popup on button click
+    closeBtn.addEventListener('click', () => popupEl.classList.remove('active'));
+
+    // Close popup when clicking outside
+    popupEl.addEventListener('click', e => {
+      if (e.target === popupEl) popupEl.classList.remove('active');
+    });
+  });
+</script>
+
                                       <!-- <div class="card">
                                         <img src="https://esoullyf.in/cdn/shop/files/mustard.png?v=1690628886"
                                             alt="Goldfish" class="card-image">
@@ -1002,51 +1305,20 @@ Our whole spices are more than just ingredients – they are the essence of auth
                                 </h5>
                                 <div class="sb-content">
                                     <ul class="category-list">
-                                        <li class="item">
-                                            <a href="#">Jeera / Cumin</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#">Mustard</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#">Fenugreek</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#">Sesame seed
-                                            </a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#">Kali Miri / Black
-Pepper</a>
-                                        </li>
-                                         <li class="item">
-                                            <a href="#">Elaichi / Cardamom </a>
-                                        </li><li class="item">
-                                            <a href="#">Cloves</a>
-                                        </li>
-                                         <li class="item">
-                                            <a href="#">Fennel Seeds</a>
-                                        </li>
-                                        
-                                        <li class="item">
-                                            <a href="#">Sesame seed</a>
-                                        </li>
-                                         <li class="item">
-                                            <a href="#">Ajwain </a>
-                                        </li><li class="item">
-                                            <a href="#">Dhaniya</a>
-                                        </li>
-                                         <li class="item">
-                                            <a href="#">Mirchi Teja</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#">Mirchi Kashmiri dulex</a>
-                                        </li>
-                                        <li class="item">
-                                            <a href="#">Mirchi Kashmiri</a>
-                                        </li><li class="item">
-                                            <a href="#">Sesame seed Black</a>
-                                        </li>
+                                        <li class="item"><a href="#" id="jeeraLink">Jeera / Cumin</a></li>
+                                        <li class="item"><a href="#" id="mustardLink">Mustard</a></li>
+                                        <li class="item"><a href="#" id="fenugreekLink">Fenugreek</a></li>
+                                        <li class="item"><a href="#" id="sesameLink">Sesame Seed</a></li>
+                                        <li class="item"><a href="#" id="pepperLink">Kali Miri / Black Pepper</a></li>
+                                        <li class="item"><a href="#" id="cardamomLink">Elaichi / Cardamom</a></li>
+                                        <li class="item"><a href="#" id="clovesLink">Cloves</a></li>
+                                        <li class="item"><a href="#" id="fennelLink">Fennel Seeds</a></li>
+                                        <li class="item"><a href="#" id="ajwainLink">Ajwain</a></li>
+                                        <li class="item"><a href="#" id="dhaniyaLink">Dhaniya</a></li>
+                                        <li class="item"><a href="#" id="mirchiTejaLink">Mirchi Teja</a></li>
+                                        <li class="item"><a href="#" id="mirchiKashmiriDeluxeLink">Mirchi Kashmiri Deluxe</a></li>
+                                        <li class="item"><a href="#" id="mirchiKashmiriLink">Mirchi Kashmiri</a></li>
+                                        <li class="item"><a href="#" id="blackSesameLink">Sesame Seed Black</a></li>
                                         <!-- <li class="item">
                                             <a href="#">Musterd Seed</a>
                                         </li>
@@ -1070,6 +1342,174 @@ Leaves)</a>
                                     </ul>
                                 </div>
                             </div>
+
+
+<!-- POPUPS -->
+<div class="popup-overlay" id="jeeraPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://img.clevup.in/347649/cumin-seeds-jeera-50g-1707728421549_SKU-0284_0.jpeg?width=600&format=webp" alt="Jeera / Cumin">
+      <h2>Jeera / Cumin</h2>
+      <p>Jeera, or Cumin, is a popular spice rich in antioxidants. It aids digestion, boosts metabolism, and enhances flavor in Indian dishes.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="mustardPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_KUUDUZfa84HyxkOo9mGjBhvRjTXQbHk9OCZIPsuYi32RuhbifyAm0uFr5z58jpggMYU&usqp=CAU" alt="Jeera / Cumin">
+      <h2>Mustard</h2>
+      <p>Mustard seeds are packed with omega-3 fatty acids, calcium, and iron. They help improve digestion and give a tangy flavor to food.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="fenugreekPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://plantura.garden/uk/wp-content/uploads/sites/2/2022/04/fenugreek-seeds-leaves.jpg" alt="Jeera / Cumin">
+      <h2>Fenugreek</h2>
+      <p>Fenugreek (Methi) seeds support blood sugar control, digestion, and hair health. They add a slightly bitter yet aromatic flavor.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="sesamePopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://perfarmersglobal.in/wp-content/uploads/2023/10/sesameseeds2x-58a4b41c3df78c4758d5c507.jpg" alt="Jeera / Cumin">
+      <h2>Sesame Seed</h2>
+      <p>Sesame seeds are rich in healthy fats and calcium. They support bone strength and are commonly used in snacks and sweets.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="pepperPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://m.media-amazon.com/images/I/5139r1proeL._UF1000,1000_QL80_.jpg" alt="Jeera / Cumin">
+      <h2>Kali Miri / Black Pepper</h2>
+      <p>Black Pepper is the “King of Spices.” It aids digestion, enhances nutrient absorption, and adds a sharp flavor to every dish.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="cardamomPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://indiacuisine.net/cdn/shop/products/cardamon.png?v=1680018520" alt="Jeera / Cumin">
+      <h2>Elaichi / Cardamom</h2>
+      <p>Cardamom has a sweet aroma and refreshing taste. It improves oral health, aids digestion, and adds richness to desserts and teas.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="clovesPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://tildaricelive.s3.eu-central-1.amazonaws.com/wp-content/uploads/2022/01/18135455/Cloves%402440x1200px-1024x504.jpg" alt="Jeera / Cumin">
+      <h2>Cloves</h2>
+      <p>Cloves are aromatic flower buds with antiseptic properties. They aid dental health, digestion, and add warmth to savory dishes.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="fennelPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Fennel Seeds</h2>
+      <p>Fennel seeds are aromatic and sweet in flavor. They aid digestion, refresh the mouth, and reduce bloating after meals.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="ajwainPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Ajwain</h2>
+      <p>Ajwain seeds have a strong aroma and help relieve indigestion, acidity, and cold-related discomfort.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="dhaniyaPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Dhaniya</h2>
+      <p>Dhaniya (Coriander Seeds) are aromatic and cooling. They support digestion and add freshness to dishes.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="mirchiTejaPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Mirchi Teja</h2>
+      <p>Mirchi Teja is known for its bright red color and intense spice. It enhances flavor and adds heat to Indian recipes.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="mirchiKashmiriDeluxePopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Mirchi Kashmiri Deluxe</h2>
+      <p>Kashmiri Deluxe Chillies are mildly spicy and deep red. They are perfect for color and gentle flavor in curries.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="mirchiKashmiriPopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Mirchi Kashmiri Deluxe</h2>
+      <p>Kashmiri Deluxe Chillies are mildly spicy and deep red. They are perfect for color and gentle flavor in curries.</p>
+  </div>
+</div>
+
+<div class="popup-overlay" id="blackSesamePopup">
+  <div class="popup-content">
+    <button class="close-btn">&times;</button>
+    <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/GH/IT/RM/25890162/cumin-seeds.jpg" alt="Jeera / Cumin">
+      <h2>Sesame Seed Black</h2>
+      <p>Black Sesame Seeds are nutrient-rich and boost skin and hair health. They are used in sweets and spice mixes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- JS FUNCTIONALITY -->
+<script>
+const items = [
+  { link: 'jeeraLink', popup: 'jeeraPopup' },
+  { link: 'mustardLink', popup: 'mustardPopup' },
+  { link: 'fenugreekLink', popup: 'fenugreekPopup' },
+  { link: 'sesameLink', popup: 'sesamePopup' },
+  { link: 'pepperLink', popup: 'pepperPopup' },
+  { link: 'cardamomLink', popup: 'cardamomPopup' },
+  { link: 'clovesLink', popup: 'clovesPopup' },
+  { link: 'fennelLink', popup: 'fennelPopup' },
+  { link: 'ajwainLink', popup: 'ajwainPopup' },
+  { link: 'dhaniyaLink', popup: 'dhaniyaPopup' },
+  { link: 'mirchiTejaLink', popup: 'mirchiTejaPopup' },
+  { link: 'mirchiKashmiriDeluxeLink', popup: 'mirchiKashmiriDeluxePopup' },
+  { link: 'mirchiKashmiriLink', popup: 'mirchiKashmiriPopup' },
+  { link: 'blackSesameLink', popup: 'blackSesamePopup' }
+];
+
+items.forEach(({ link, popup }) => {
+  const linkEl = document.getElementById(link);
+  const popupEl = document.getElementById(popup);
+  const closeBtn = popupEl.querySelector('.close-btn');
+
+  linkEl.addEventListener('click', (e) => {
+    e.preventDefault();
+    popupEl.classList.add('active');
+  });
+
+  closeBtn.addEventListener('click', () => popupEl.classList.remove('active'));
+  popupEl.addEventListener('click', (e) => {
+    if (e.target === popupEl) popupEl.classList.remove('active');
+  });
+});
+</script>
+
+
+
 <div class="offer-box">
     <div class="offer-list">
         <div class="offer-wrap wow fadeInUp" data-wow-delay="0s">

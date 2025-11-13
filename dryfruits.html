@@ -803,30 +803,197 @@
                                     }
                                 </style>
 
+
+  <style>
+    /* .card {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    } */
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    } */
+
+    /* .card h3 {
+      margin: 10px 0;
+      padding: 10px;
+      color: #333;
+    } */
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Popup Box - Modern Glass Style */
+    .popup-content {
+      background: rgb(0 0 0 / 20%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 380px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      animation: popupOpen 0.4s forwards;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+      color: #fff;
+    }
+
+    @keyframes popupOpen {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .popup-content p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #000;
+    }
+  </style>
+
+
                                 <div class="cards-container">
-                                    <div class="card">
-                                        <img src="https://m.media-amazon.com/images/I/61pJXOJTKWL.jpg"
-                                            alt="Golden Retriever" class="card-image">
-                                        <h3 class="card-name">Cashew</h3>
-                                    </div>
+                                    <!-- Cashew -->
+  <div class="card" id="cashewCard">
+    <img src="https://m.media-amazon.com/images/I/61pJXOJTKWL.jpg" alt="Cashew" class="card-image">
+    <h3 class="card-name">Cashew</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/raisins-732x549-thumbnail.jpg"
-                                            alt="Persian Cat" class="card-image">
-                                        <h3 class="card-name">Raisin </h3>
-                                    </div>
+  <!-- Raisin -->
+  <div class="card" id="raisinCard">
+    <img src="https://media.post.rvohealth.io/wp-content/uploads/2020/09/raisins-732x549-thumbnail.jpg" alt="Raisin" class="card-image">
+    <h3 class="card-name">Raisin</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLeBtDaTlVFFwtT5UhNFC7gdq-ZDmO2AwZ9w&s"
-                                            alt="Parrot" class="card-image">
-                                        <h3 class="card-name">Almond</h3>
-                                    </div>
+  <!-- Almond -->
+  <div class="card" id="almondCard">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLeBtDaTlVFFwtT5UhNFC7gdq-ZDmO2AwZ9w&s" alt="Almond" class="card-image">
+    <h3 class="card-name">Almond</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://images.immediate.co.uk/production/volatile/sites/30/2025/05/Pistachios440-c05d208.jpg?quality=90&resize=440,400"
-                                            alt="Rabbit" class="card-image">
-                                        <h3 class="card-name">Pistachio</h3>
-                                    </div>
+  <!-- Pistachio -->
+  <div class="card" id="pistachioCard">
+    <img src="https://images.immediate.co.uk/production/volatile/sites/30/2025/05/Pistachios440-c05d208.jpg?quality=90&resize=440,400" alt="Pistachio" class="card-image">
+    <h3 class="card-name">Pistachio</h3>
+  </div>
+
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="cashewPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Cashew</h2>
+      <p>Cashews are rich in healthy fats and protein. They help boost energy, improve heart health, and add creaminess to dishes.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="raisinPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Raisin</h2>
+      <p>Raisins are naturally sweet dried grapes. They are packed with iron, potassium, and antioxidants for a healthy boost.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="almondPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Almond</h2>
+      <p>Almonds are rich in vitamin E, magnesium, and fiber. They promote brain function and healthy glowing skin.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="pistachioPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Pistachio</h2>
+      <p>Pistachios are crunchy, flavorful nuts full of healthy fats and antioxidants that support heart and eye health.</p>
+    </div>
+  </div>
+
+  <!-- JS FUNCTIONALITY -->
+  <script>
+    const cards = [
+      { card: 'cashewCard', popup: 'cashewPopup' },
+      { card: 'raisinCard', popup: 'raisinPopup' },
+      { card: 'almondCard', popup: 'almondPopup' },
+      { card: 'pistachioCard', popup: 'pistachioPopup' }
+    ];
+
+    cards.forEach(({ card, popup }) => {
+      const cardEl = document.getElementById(card);
+      const popupEl = document.getElementById(popup);
+      const closeBtn = popupEl.querySelector('.close-btn');
+
+      cardEl.addEventListener('click', () => popupEl.classList.add('active'));
+      closeBtn.addEventListener('click', () => popupEl.classList.remove('active'));
+      popupEl.addEventListener('click', e => {
+        if (e.target === popupEl) popupEl.classList.remove('active');
+      });
+    });
+  </script>
+
 
                                     <!-- <div class="card">
                                         <img src="https://assets.clevelandclinic.org/transform/b0ae388f-994a-4dd3-a58b-c64b99b61463/dates-Fruit-Bowl-516816730-770x533-1_jpg"
