@@ -886,59 +886,459 @@ Including millets in your daily diet is one of the simplest and most economical 
                                 </style>
 
                                 <div class="cards-container">
-                                    <div class="card">
-                                        <img src="https://www.amar-khamar.com/cdn/shop/products/KodoMillet.jpg?v=1667939345&width=1445"
-                                            alt="Golden Retriever" class="card-image">
-                                        <h3 class="card-name">Kodo</h3>
-                                    </div>
+                                      <div class="card" id="kodoCard">
+    <img src="https://www.amar-khamar.com/cdn/shop/products/KodoMillet.jpg?v=1667939345&width=1445" alt="Kodo Millet" class="card-image">
+    <h3 class="card-name">Kodo</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://sahasa.in/wp-content/uploads/2023/08/bhind-bajra-1.jpg"
-                                            alt="Persian Cat" class="card-image">
-                                        <h3 class="card-name">Bajra</h3>
-                                    </div>
+  <!-- Popup -->
+ <!-- Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content">
+      <button class="close-btn" id="closeBtn">&times;</button>
+      <h2>Kodo Millet</h2>
+      <p>Kodo millet is a nutritious grain rich in fiber, protein, and antioxidants. 
+      It is a great alternative to rice and helps maintain energy and digestive health.</p>
+    </div>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_QfyWDH4u7tHEeOubGySLASPPZaKSiD7Gsw&s"
-                                            alt="Parrot" class="card-image">
-                                        <h3 class="card-name">Foxtail Millet</h3>
-                                    </div>
+  <script>
+    const card = document.getElementById('kodoCard');
+    const popup = document.getElementById('popupOverlay');
+    const closeBtn = document.getElementById('closeBtn');
 
-                                    <div class="card">
-                                        <img src="https://twobrothersindiashop.com/cdn/shop/articles/Little_Millet_-_Benefits_Uses_Nutrition_and_Everything_You_Need_to_Know.png?v=1689395736&width=1024"
-                                            alt="Rabbit" class="card-image">
-                                        <h3 class="card-name">Little Millet</h3>
-                                    </div>
+    // Open popup on card click
+    card.addEventListener('click', () => {
+      popup.classList.add('active');
+    });
 
-                                    <div class="card">
-                                        <img src="https://img.freepik.com/free-photo/top-view-quinoa-with-wooden-spoon_140725-9086.jpg"
-                                            alt="Hamster" class="card-image">
-                                        <h3 class="card-name">Jowar</h3>
-                                    </div>
+    // Close popup on close button click
+    closeBtn.addEventListener('click', () => {
+      popup.classList.remove('active');
+    });
 
-                                    <div class="card">
-                                        <img src="https://www.amar-khamar.com/cdn/shop/products/BarnyardMillet-2.jpg?v=1749648211&width=1445"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Barnyard Millet</h3>
-                                    </div>
+    // Close popup when clicking outside the content
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        popup.classList.remove('active');
+      }
+    });
+  </script>
 
-                                    <div class="card">
-                                        <img src="https://www.amar-khamar.com/cdn/shop/products/ProsoMillet1.jpg?v=1667813627"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Proso Millet</h3>
-                                    </div>
+  <style>
+    /* .card {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    } */
 
-                                    <div class="card">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfU2FXk8BBT31lAtS4eH6wpGIsfZw2kB4rbg&s"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Browntop Millet</h3>
-                                    </div>
+    .card:hover {
+      transform: translateY(-5px);
+    }
 
-                                    <div class="card">
-                                        <img src="https://svasthyaa.com/cdn/shop/articles/Screenshot_2025-06-27_at_12.08.04_AM.png?v=1750963122"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Ragi</h3>
-                                    </div>
+    /* .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    } */
+
+    /* .card h3 {
+      margin: 10px 0;
+      padding: 10px;
+      color: #333;
+    } */
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Popup Box - Modern Glass Style */
+    .popup-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 380px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      animation: popupOpen 0.4s forwards;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+      color: #fff;
+    }
+
+    @keyframes popupOpen {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .popup-content p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #000;
+    }
+  </style>
+
+
+                                      <div class="card" id="bajraCard">
+    <img src="https://sahasa.in/wp-content/uploads/2023/08/bhind-bajra-1.jpg" alt="Bajra" class="card-image">
+    <h3 class="card-name">Bajra</h3>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="bajraPopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closeBajra">&times;</button>
+      <h2>Bajra (Pearl Millet)</h2>
+      <p>Bajra, also known as pearl millet, is a powerhouse of nutrients rich in iron, fiber, and protein. 
+      It supports digestion, boosts energy, and is ideal for gluten-free diets.</p>
+    </div>
+  </div>
+
+  <script>
+    const bajraCard = document.getElementById('bajraCard');
+    const bajraPopup = document.getElementById('bajraPopup');
+    const closeBajra = document.getElementById('closeBajra');
+
+    // Open popup on card click
+    bajraCard.addEventListener('click', () => {
+      bajraPopup.classList.add('active');
+    });
+
+    // Close popup on close button click
+    closeBajra.addEventListener('click', () => {
+      bajraPopup.classList.remove('active');
+    });
+
+    // Close popup when clicking outside content
+    bajraPopup.addEventListener('click', (e) => {
+      if (e.target === bajraPopup) {
+        bajraPopup.classList.remove('active');
+      }
+    });
+  </script>
+                                    
+
+                                      <div class="card" id="foxtailCard">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_QfyWDH4u7tHEeOubGySLASPPZaKSiD7Gsw&s" alt="Foxtail Millet" class="card-image">
+    <h3 class="card-name">Foxtail Millet</h3>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="foxtailPopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closeFoxtail">&times;</button>
+      <h2>Foxtail Millet</h2>
+      <p>Foxtail millet is one of the oldest cultivated grains, rich in dietary fiber, protein, and iron. 
+      It helps control blood sugar, supports weight loss, and improves heart health.</p>
+    </div>
+  </div>
+
+  <script>
+    const foxtailCard = document.getElementById('foxtailCard');
+    const foxtailPopup = document.getElementById('foxtailPopup');
+    const closeFoxtail = document.getElementById('closeFoxtail');
+
+    // Open popup on card click
+    foxtailCard.addEventListener('click', () => {
+      foxtailPopup.classList.add('active');
+    });
+
+    // Close popup on close button click
+    closeFoxtail.addEventListener('click', () => {
+      foxtailPopup.classList.remove('active');
+    });
+
+    // Close popup when clicking outside the content
+    foxtailPopup.addEventListener('click', (e) => {
+      if (e.target === foxtailPopup) {
+        foxtailPopup.classList.remove('active');
+      }
+    });
+  </script>
+
+                                      <div class="card" id="littleCard">
+    <img src="https://twobrothersindiashop.com/cdn/shop/articles/Little_Millet_-_Benefits_Uses_Nutrition_and_Everything_You_Need_to_Know.png?v=1689395736&width=1024" alt="Little Millet" class="card-image">
+    <h3 class="card-name">Little Millet</h3>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="littlePopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closeLittle">&times;</button>
+      <h2>Little Millet</h2>
+      <p>Little Millet is a small-seeded ancient grain packed with fiber, iron, and antioxidants.  
+      It helps regulate cholesterol, supports weight management, and provides long-lasting energy.</p>
+    </div>
+  </div>
+
+  <script>
+    const littleCard = document.getElementById('littleCard');
+    const littlePopup = document.getElementById('littlePopup');
+    const closeLittle = document.getElementById('closeLittle');
+
+    // Open popup on card click
+    littleCard.addEventListener('click', () => {
+      littlePopup.classList.add('active');
+    });
+
+    // Close popup on close button click
+    closeLittle.addEventListener('click', () => {
+      littlePopup.classList.remove('active');
+    });
+
+    // Close popup when clicking outside content
+    littlePopup.addEventListener('click', (e) => {
+      if (e.target === littlePopup) {
+        littlePopup.classList.remove('active');
+      }
+    });
+  </script>
+
+                                      <div class="card" id="jowarCard">
+    <img src="https://img.freepik.com/free-photo/top-view-quinoa-with-wooden-spoon_140725-9086.jpg" alt="Jowar" class="card-image">
+    <h3 class="card-name">Jowar</h3>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="jowarPopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closeJowar">&times;</button>
+      <h2>Jowar (Sorghum)</h2>
+      <p>Jowar is a gluten-free whole grain rich in fiber, iron, and protein.  
+      It helps improve digestion, supports heart health, and provides sustained energy.  
+      It’s a great alternative to wheat and rice for a healthy diet.</p>
+    </div>
+  </div>
+
+  <script>
+    const jowarCard = document.getElementById('jowarCard');
+    const jowarPopup = document.getElementById('jowarPopup');
+    const closeJowar = document.getElementById('closeJowar');
+
+    // Open popup on card click
+    jowarCard.addEventListener('click', () => {
+      jowarPopup.classList.add('active');
+    });
+
+    // Close popup on close button click
+    closeJowar.addEventListener('click', () => {
+      jowarPopup.classList.remove('active');
+    });
+
+    // Close popup when clicking outside content
+    jowarPopup.addEventListener('click', (e) => {
+      if (e.target === jowarPopup) {
+        jowarPopup.classList.remove('active');
+      }
+    });
+  </script>
+
+                                      <div class="card" id="barnyardCard">
+    <img src="https://www.amar-khamar.com/cdn/shop/products/BarnyardMillet-2.jpg?v=1749648211&width=1445" alt="Barnyard Millet" class="card-image">
+    <h3 class="card-name">Barnyard Millet</h3>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="barnyardPopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closeBarnyard">&times;</button>
+      <h2>Barnyard Millet</h2>
+      <p>Barnyard Millet is a highly nutritious and gluten-free grain rich in iron, fiber, and calcium.  
+      It helps manage blood sugar levels, improves digestion, and boosts energy naturally.  
+      A perfect addition to a healthy, balanced diet.</p>
+    </div>
+  </div>
+
+  <script>
+    const barnyardCard = document.getElementById('barnyardCard');
+    const barnyardPopup = document.getElementById('barnyardPopup');
+    const closeBarnyard = document.getElementById('closeBarnyard');
+
+    // Open popup on card click
+    barnyardCard.addEventListener('click', () => {
+      barnyardPopup.classList.add('active');
+    });
+
+    // Close popup on close button click
+    closeBarnyard.addEventListener('click', () => {
+      barnyardPopup.classList.remove('active');
+    });
+
+    // Close popup when clicking outside content
+    barnyardPopup.addEventListener('click', (e) => {
+      if (e.target === barnyardPopup) {
+        barnyardPopup.classList.remove('active');
+      }
+    });
+  </script>
+
+                                      <div class="card" id="prosoCard">
+    <img src="https://www.amar-khamar.com/cdn/shop/products/ProsoMillet1.jpg?v=1667813627" alt="Proso Millet" class="card-image">
+    <h3 class="card-name">Proso Millet</h3>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="prosoPopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closeProso">&times;</button>
+      <h2>Proso Millet</h2>
+      <p>Proso Millet is a rich source of protein, fiber, and essential minerals.  
+      It helps reduce cholesterol, supports muscle strength, and provides steady energy release.  
+      A perfect grain for maintaining heart and digestive health.</p>
+    </div>
+  </div>
+
+  <script>
+    const prosoCard = document.getElementById('prosoCard');
+    const prosoPopup = document.getElementById('prosoPopup');
+    const closeProso = document.getElementById('closeProso');
+
+    // Open popup on card click
+    prosoCard.addEventListener('click', () => {
+      prosoPopup.classList.add('active');
+    });
+
+    // Close popup on close button click
+    closeProso.addEventListener('click', () => {
+      prosoPopup.classList.remove('active');
+    });
+
+    // Close popup when clicking outside content
+    prosoPopup.addEventListener('click', (e) => {
+      if (e.target === prosoPopup) {
+        prosoPopup.classList.remove('active');
+      }
+    });
+  </script>
+
+                                      <!-- Browntop Millet Card -->
+  <div class="card" id="browntopCard">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfU2FXk8BBT31lAtS4eH6wpGIsfZw2kB4rbg&s" alt="Browntop Millet" class="card-image">
+    <h3 class="card-name">Browntop Millet</h3>
+  </div>
+
+  <!-- Ragi Card -->
+  <div class="card" id="ragiCard">
+    <img src="https://svasthyaa.com/cdn/shop/articles/Screenshot_2025-06-27_at_12.08.04_AM.png?v=1750963122" alt="Ragi" class="card-image">
+    <h3 class="card-name">Ragi</h3>
+  </div>
+
+  <!-- Browntop Millet Popup -->
+  <div class="popup-overlay" id="browntopPopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closeBrowntop">&times;</button>
+      <h2>Browntop Millet</h2>
+      <p>Browntop Millet is one of the most nutritious and fastest-growing millets.  
+      It’s rich in fiber, iron, and antioxidants — perfect for diabetes management, digestion, and weight loss.  
+      It’s also an eco-friendly, drought-resistant crop.</p>
+    </div>
+  </div>
+
+  <!-- Ragi Popup -->
+  <div class="popup-overlay" id="ragiPopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closeRagi">&times;</button>
+      <h2>Ragi (Finger Millet)</h2>
+      <p>Ragi is a calcium-rich super grain that strengthens bones, helps manage diabetes, and promotes heart health.  
+      It’s also a great source of iron and amino acids — ideal for growing children and adults alike.</p>
+    </div>
+  </div>
+
+  <script>
+    // Browntop Millet Popup
+    const browntopCard = document.getElementById('browntopCard');
+    const browntopPopup = document.getElementById('browntopPopup');
+    const closeBrowntop = document.getElementById('closeBrowntop');
+
+    browntopCard.addEventListener('click', () => {
+      browntopPopup.classList.add('active');
+    });
+
+    closeBrowntop.addEventListener('click', () => {
+      browntopPopup.classList.remove('active');
+    });
+
+    browntopPopup.addEventListener('click', (e) => {
+      if (e.target === browntopPopup) {
+        browntopPopup.classList.remove('active');
+      }
+    });
+
+    // Ragi Popup
+    const ragiCard = document.getElementById('ragiCard');
+    const ragiPopup = document.getElementById('ragiPopup');
+    const closeRagi = document.getElementById('closeRagi');
+
+    ragiCard.addEventListener('click', () => {
+      ragiPopup.classList.add('active');
+    });
+
+    closeRagi.addEventListener('click', () => {
+      ragiPopup.classList.remove('active');
+    });
+
+    ragiPopup.addEventListener('click', (e) => {
+      if (e.target === ragiPopup) {
+        ragiPopup.classList.remove('active');
+      }
+    });
+  </script>
 
 
                                 </div>

@@ -847,7 +847,7 @@ a.text-white {
 .tf-container .row > * {
   padding-left: 15px !important;
   padding-right: 15px !important;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
 .tf-container.full {
   width: 100%;
@@ -3345,7 +3345,7 @@ a.text-white {
   font-size: 16px;
   font-family: "Work Sans", sans-serif;
   overflow: hidden;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
 .tf-btn.gap-37 {
   gap: 37px;

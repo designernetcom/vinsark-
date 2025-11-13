@@ -864,42 +864,230 @@ Each batch is carefully inspected, cleaned, and tested at various stages of proc
                                     }
                                 </style>
 
+
+  <style>
+    /* .card {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    } */
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    } */
+
+    /* .card h3 {
+      margin: 10px 0;
+      padding: 10px;
+      color: #333;
+    } */
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Popup Box - Modern Glass Style */
+    .popup-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 380px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      animation: popupOpen 0.4s forwards;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+      color: #fff;
+    }
+
+    @keyframes popupOpen {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .popup-content p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #000;
+    }
+  </style>
+
                                 <div class="cards-container">
-                                    <div class="card">
-                                        <img src="https://img.freepik.com/free-photo/wheat-grains-bowl-wheat-popcorn-bowl-wheat-seed-rustic_114579-1316.jpg?semt=ais_incoming&w=740&q=80"
-                                            alt="Golden Retriever" class="card-image">
-                                        <h3 class="card-name">Wheat Lokwan</h3>
-                                    </div>
+                                     <!-- WHEAT LOKWAN -->
+  <div class="card" id="lokwanCard">
+    <img src="https://img.freepik.com/free-photo/wheat-grains-bowl-wheat-popcorn-bowl-wheat-seed-rustic_114579-1316.jpg?semt=ais_incoming&w=740&q=80" alt="Wheat Lokwan" class="card-image">
+    <h3 class="card-name">Wheat Lokwan</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://organicshandy.com/wp-content/uploads/2018/07/155286486-612x612.jpg"
-                                            alt="Persian Cat" class="card-image">
-                                        <h3 class="card-name">Wheat Sharbati</h3>
-                                    </div>
+  <!-- WHEAT SHARBATI -->
+  <div class="card" id="sharbatiCard">
+    <img src="https://organicshandy.com/wp-content/uploads/2018/07/155286486-612x612.jpg" alt="Wheat Sharbati" class="card-image">
+    <h3 class="card-name">Wheat Sharbati</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://thenaturespalm.in/cdn/shop/files/Khapliwheatwebpic-4.webp?v=1744833333"
-                                            alt="Parrot" class="card-image">
-                                        <h3 class="card-name">Wheat Khapli</h3>
-                                    </div>
+  <!-- WHEAT KHAPLI -->
+  <div class="card" id="khapliCard">
+    <img src="https://thenaturespalm.in/cdn/shop/files/Khapliwheatwebpic-4.webp?v=1744833333" alt="Wheat Khapli" class="card-image">
+    <h3 class="card-name">Wheat Khapli</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://cpimg.tistatic.com/7572477/b/1/1121-golden-sella-rice.jpg"
-                                            alt="Rabbit" class="card-image">
-                                        <h3 class="card-name">Rice (Basmati)1121 golden sella</h3>
-                                    </div>
+  <!-- RICE 1121 GOLDEN SELLA -->
+  <div class="card" id="sellaCard">
+    <img src="https://cpimg.tistatic.com/7572477/b/1/1121-golden-sella-rice.jpg" alt="Rice 1121 Golden Sella" class="card-image">
+    <h3 class="card-name">Rice (Basmati) 1121 Golden Sella</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://chheda.store/wp-content/uploads/2021/06/KOLAM-A-AND-AAA.jpg"
-                                            alt="Hamster" class="card-image">
-                                        <h3 class="card-name">Rice (Kolam)</h3>
-                                    </div>
+  <!-- RICE KOLAM -->
+  <div class="card" id="kolamCard">
+    <img src="https://chheda.store/wp-content/uploads/2021/06/KOLAM-A-AND-AAA.jpg" alt="Rice Kolam" class="card-image">
+    <h3 class="card-name">Rice (Kolam)</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://img.freepik.com/free-photo/top-view-raw-rice-inside-plate-dark-desk_179666-27235.jpg?semt=ais_incoming&w=740&q=80"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Rice (Basmati)</h3>
-                                    </div>
+  <!-- RICE BASMATI -->
+  <div class="card" id="basmatiCard">
+    <img src="https://img.freepik.com/free-photo/top-view-raw-rice-inside-plate-dark-desk_179666-27235.jpg?semt=ais_incoming&w=740&q=80" alt="Rice Basmati" class="card-image">
+    <h3 class="card-name">Rice (Basmati)</h3>
+  </div>
+
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="lokwanPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Wheat Lokwan</h2>
+      <p>Lokwan Wheat is known for its high protein and fiber content.  
+      It produces soft chapatis and provides long-lasting energy.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="sharbatiPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Wheat Sharbati</h2>
+      <p>Sharbati Wheat is a premium variety grown in Madhya Pradesh.  
+      It is naturally sweet, soft, and rich in essential nutrients.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="khapliPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Wheat Khapli</h2>
+      <p>Khapli (Emmer) Wheat is an ancient grain rich in fiber and low in gluten.  
+      It aids digestion and helps regulate blood sugar levels.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="sellaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Rice (Basmati) 1121 Golden Sella</h2>
+      <p>This rice variety is aromatic, long-grained, and rich in nutrients.  
+      It is ideal for biryanis and festive dishes.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="kolamPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Rice (Kolam)</h2>
+      <p>Kolam Rice is medium-grained and aromatic.  
+      It’s soft, lightweight, and perfect for daily meals.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="basmatiPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Rice (Basmati)</h2>
+      <p>Basmati Rice is known for its fragrance and long slender grains.  
+      It’s a perfect choice for traditional Indian delicacies.</p>
+    </div>
+  </div>
+
+  <script>
+    const cards = [
+      { card: 'lokwanCard', popup: 'lokwanPopup' },
+      { card: 'sharbatiCard', popup: 'sharbatiPopup' },
+      { card: 'khapliCard', popup: 'khapliPopup' },
+      { card: 'sellaCard', popup: 'sellaPopup' },
+      { card: 'kolamCard', popup: 'kolamPopup' },
+      { card: 'basmatiCard', popup: 'basmatiPopup' }
+    ];
+
+    cards.forEach(({ card, popup }) => {
+      const cardEl = document.getElementById(card);
+      const popupEl = document.getElementById(popup);
+      const closeBtn = popupEl.querySelector('.close-btn');
+
+      cardEl.addEventListener('click', () => popupEl.classList.add('active'));
+      closeBtn.addEventListener('click', () => popupEl.classList.remove('active'));
+      popupEl.addEventListener('click', e => {
+        if (e.target === popupEl) popupEl.classList.remove('active');
+      });
+    });
+  </script>
 
                                     <!-- <div class="card">
                                         <img src="https://eathealthystore.in/wp-content/uploads/2024/02/image-1000x1248-7-1.png"

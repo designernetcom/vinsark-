@@ -855,42 +855,232 @@
                                     }
                                 </style>
 
+
+
+<style>
+
+    /* .card {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    } */
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    } */
+
+    /* .card h3 {
+      margin: 10px 0;
+      padding: 10px;
+      color: #333;
+    } */
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Popup Box - Modern Glass Style */
+    .popup-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 380px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      animation: popupOpen 0.4s forwards;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+      color: #fff;
+    }
+
+    @keyframes popupOpen {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .popup-content p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #000;
+    }
+  </style>
+
                                 <div class="cards-container">
-                                    <div class="card">
-                                        <img src="https://media.istockphoto.com/id/689061604/photo/basil-seeds-in-spoon.jpg?s=612x612&w=0&k=20&c=U9V-KiWuUxiu8VjT-XeIZp09a8Gsfib95q_6yko_6nc="
-                                            alt="Golden Retriever" class="card-image">
-                                        <h3 class="card-name">Basil Seeds</h3>
-                                    </div>
+                                      <!-- BASIL SEEDS -->
+  <div class="card" id="basilCard">
+    <img src="https://media.istockphoto.com/id/689061604/photo/basil-seeds-in-spoon.jpg?s=612x612&w=0&k=20&c=U9V-KiWuUxiu8VjT-XeIZp09a8Gsfib95q_6yko_6nc=" alt="Basil Seeds" class="card-image">
+    <h3 class="card-name">Basil Seeds</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://www.eatright.org/-/media/images/eatright-articles/eatright-article-thumbnails/whatarechiaseeds_600x450.jpg?h=450&w=600&rev=7040a2d467744f61884b0d6910ac6bb4&hash=CB0D1D2EBA7E59D5FEE6D4615748133B"
-                                            alt="Persian Cat" class="card-image">
-                                        <h3 class="card-name">Chia Seeds</h3>
-                                    </div>
+  <!-- CHIA SEEDS -->
+  <div class="card" id="chiaCard">
+    <img src="https://www.eatright.org/-/media/images/eatright-articles/eatright-article-thumbnails/whatarechiaseeds_600x450.jpg?h=450&w=600&rev=7040a2d467744f61884b0d6910ac6bb4&hash=CB0D1D2EBA7E59D5FEE6D4615748133B" alt="Chia Seeds" class="card-image">
+    <h3 class="card-name">Chia Seeds</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://www.dryfruitsgallery.com/wp-content/uploads/2024/01/Flax-Seeds-Weight-Loss.jpg"
-                                            alt="Parrot" class="card-image">
-                                        <h3 class="card-name">Flax Seed</h3>
-                                    </div>
+  <!-- FLAX SEEDS -->
+  <div class="card" id="flaxCard">
+    <img src="https://www.dryfruitsgallery.com/wp-content/uploads/2024/01/Flax-Seeds-Weight-Loss.jpg" alt="Flax Seeds" class="card-image">
+    <h3 class="card-name">Flax Seed</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://static.toiimg.com/thumb/msid-117732800,imgsize-2492660,width-400,resizemode-4/117732800.jpg"
-                                            alt="Rabbit" class="card-image">
-                                        <h3 class="card-name">Pumpkin Seeds</h3>
-                                    </div>
+  <!-- PUMPKIN SEEDS -->
+  <div class="card" id="pumpkinCard">
+    <img src="https://static.toiimg.com/thumb/msid-117732800,imgsize-2492660,width-400,resizemode-4/117732800.jpg" alt="Pumpkin Seeds" class="card-image">
+    <h3 class="card-name">Pumpkin Seeds</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://img.freepik.com/free-photo/black-sunflower-seeds-heart-shaped-board-white-background-top-view_176474-5189.jpg?semt=ais_incoming&w=740&q=80"
-                                            alt="Hamster" class="card-image">
-                                        <h3 class="card-name">sunflower seeds</h3>
-                                    </div>
+  <!-- SUNFLOWER SEEDS -->
+  <div class="card" id="sunflowerCard">
+    <img src="https://img.freepik.com/free-photo/black-sunflower-seeds-heart-shaped-board-white-background-top-view_176474-5189.jpg?semt=ais_incoming&w=740&q=80" alt="Sunflower Seeds" class="card-image">
+    <h3 class="card-name">Sunflower Seeds</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://femina.wwmindia.com/thumb/content/2020/feb/watermelon-seeds-01-thumb1582265978.jpg?width=1280&height=720"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Watermelon seeds</h3>
-                                    </div>
+  <!-- WATERMELON SEEDS -->
+  <div class="card" id="watermelonCard">
+    <img src="https://femina.wwmindia.com/thumb/content/2020/feb/watermelon-seeds-01-thumb1582265978.jpg?width=1280&height=720" alt="Watermelon Seeds" class="card-image">
+    <h3 class="card-name">Watermelon Seeds</h3>
+  </div>
+
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="basilPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Basil Seeds</h2>
+      <p>Basil Seeds are rich in fiber and essential minerals.  
+      They help in cooling the body, aiding digestion, and managing weight effectively.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="chiaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Chia Seeds</h2>
+      <p>Chia Seeds are packed with omega-3, antioxidants, and calcium.  
+      They boost energy, heart health, and improve digestion naturally.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="flaxPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Flax Seeds</h2>
+      <p>Flax Seeds are known for their omega-3 fatty acids and lignans.  
+      They support healthy skin, reduce cholesterol, and enhance digestion.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="pumpkinPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Pumpkin Seeds</h2>
+      <p>Pumpkin Seeds are rich in protein, iron, and zinc.  
+      They help strengthen immunity and improve heart health.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="sunflowerPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Sunflower Seeds</h2>
+      <p>Sunflower Seeds are full of vitamin E, antioxidants, and healthy fats.  
+      They promote glowing skin and support overall wellness.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="watermelonPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Watermelon Seeds</h2>
+      <p>Watermelon Seeds are high in magnesium, zinc, and healthy fats.  
+      They improve metabolism and help maintain strong bones and heart health.</p>
+    </div>
+  </div>
+
+  <script>
+    const cards = [
+      { card: 'basilCard', popup: 'basilPopup' },
+      { card: 'chiaCard', popup: 'chiaPopup' },
+      { card: 'flaxCard', popup: 'flaxPopup' },
+      { card: 'pumpkinCard', popup: 'pumpkinPopup' },
+      { card: 'sunflowerCard', popup: 'sunflowerPopup' },
+      { card: 'watermelonCard', popup: 'watermelonPopup' }
+    ];
+
+    cards.forEach(({ card, popup }) => {
+      const cardEl = document.getElementById(card);
+      const popupEl = document.getElementById(popup);
+      const closeBtn = popupEl.querySelector('.close-btn');
+
+      cardEl.addEventListener('click', () => popupEl.classList.add('active'));
+      closeBtn.addEventListener('click', () => popupEl.classList.remove('active'));
+      popupEl.addEventListener('click', e => {
+        if (e.target === popupEl) popupEl.classList.remove('active');
+      });
+    });
+  </script>
 
                                     <!-- <div class="card">
                                         <img src="https://5.imimg.com/data5/SELLER/Default/2023/6/317595527/ZU/NX/HT/160787959/swarna-raw-rice-500x500.jpeg"

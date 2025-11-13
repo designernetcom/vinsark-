@@ -882,102 +882,405 @@
                                     }
                                 </style>
 
+  <style>
+    /* .card {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    } */
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    } */
+
+    /* .card h3 {
+      margin: 10px 0;
+      padding: 10px;
+      color: #333;
+    } */
+
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Popup Box - Modern Glass Style */
+    .popup-content {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 30px 25px;
+      border-radius: 20px;
+      width: 380px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      animation: popupOpen 0.4s forwards;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+      color: #fff;
+    }
+
+    @keyframes popupOpen {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .popup-content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .popup-content p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #f1f1f1;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #000;
+    }
+  </style>
+
+
                                 <div class="cards-container">
-                                    <div class="card">
-                                        <img src="https://rukminim2.flixcart.com/image/704/844/kmjhw280/pulses/w/c/o/1-premium-chana-dal-1kg-chana-dal-producer-original-imagfewzzzehx3ft.jpeg?q=90&crop=false"
-                                            alt="Golden Retriever" class="card-image">
-                                        <h3 class="card-name">Chana Dal</h3>
-                                    </div>
+                                      <!-- CHANA DAL -->
+  <div class="card" id="chanaCard">
+    <img src="https://rukminim2.flixcart.com/image/704/844/kmjhw280/pulses/w/c/o/1-premium-chana-dal-1kg-chana-dal-producer-original-imagfewzzzehx3ft.jpeg?q=90&crop=false" alt="Chana Dal" class="card-image">
+    <h3 class="card-name">Chana Dal</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://zamaorganics.com/cdn/shop/files/Untitleddesign_79_e3e4ade1-bbba-4487-a042-e93ba81f0a74.png?v=1756449546&width=1080"
-                                            alt="Persian Cat" class="card-image">
-                                        <h3 class="card-name">Yellow Moong</h3>
-                                    </div>
+  <!-- YELLOW MOONG -->
+  <div class="card" id="yellowMoongCard">
+    <img src="https://zamaorganics.com/cdn/shop/files/Untitleddesign_79_e3e4ade1-bbba-4487-a042-e93ba81f0a74.png?v=1756449546&width=1080" alt="Yellow Moong" class="card-image">
+    <h3 class="card-name">Yellow Moong</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/465913179/LT/TU/VL/149110394/packaged-urad-dal-500x500.jpeg"
-                                            alt="Parrot" class="card-image">
-                                        <h3 class="card-name">Green Moong Split</h3>
-                                    </div>
+  <!-- GREEN MOONG SPLIT -->
+  <div class="card" id="greenMoongSplitCard">
+    <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/465913179/LT/TU/VL/149110394/packaged-urad-dal-500x500.jpeg" alt="Green Moong Split" class="card-image">
+    <h3 class="card-name">Green Moong Split</h3>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://ooofarms.com/cdn/shop/products/OOO_Farms_Whole_Green_Moong_in_a_Bowl.jpg?v=1724299196&width=1500"
-                                            alt="Rabbit" class="card-image">
-                                        <h3 class="card-name">Green Moong
-Whole</h3>
-                                    </div>
+  <!-- GREEN MOONG WHOLE -->
+  <div class="card" id="greenMoongWholeCard">
+    <img src="https://ooofarms.com/cdn/shop/products/OOO_Farms_Whole_Green_Moong_in_a_Bowl.jpg?v=1724299196&width=1500" alt="Green Moong Whole" class="card-image">
+    <h3 class="card-name">Green Moong Whole</h3>
+  </div>
 
-                                      <div class="card">
-                                        <img src="https://farmveda.in/cdn/shop/files/hand-pounded-toor-dal-2-500x500_620x.webp?v=1705498098"
-                                            alt="Hamster" class="card-image">
-                                        <h3 class="card-name">Toor Dal</h3>
-                                    </div>
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="chanaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Chana Dal</h2>
+      <p>Chana Dal is a rich source of protein and fiber.  
+      It supports digestion, helps in weight management, and keeps energy levels balanced.</p>
+    </div>
+  </div>
 
+  <div class="popup-overlay" id="yellowMoongPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Yellow Moong</h2>
+      <p>Yellow Moong Dal is light and easy to digest.  
+      It’s packed with vitamins, minerals, and protein — great for muscle recovery and immunity.</p>
+    </div>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://5.imimg.com/data5/ANDROID/Default/2023/4/301141027/AX/KR/SH/17720149/product-jpeg-500x500.jpg"
-                                            alt="Hamster" class="card-image">
-                                        <h3 class="card-name">Rajma</h3>
-                                    </div>
+  <div class="popup-overlay" id="greenMoongSplitPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Green Moong Split</h2>
+      <p>Green Moong Split Dal is high in antioxidants and fiber.  
+      It helps regulate blood sugar levels and supports heart health naturally.</p>
+    </div>
+  </div>
 
-                                    <div class="card">
-                                        <img src="https://biobasics.org/cdn/shop/files/order-organic-urad-dal-without-skin-online-at-bio-basics.png?v=1755700272&width=300"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Urad Dal</h3>
-                                    </div>
-
-                                    <div class="card">
-                                        <img src="https://organigram.in/wp-content/uploads/2024/01/organic-urad-gota-.webp"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">urad dal Gota
-(whole)</h3>
-                                    </div>
-
-                                     <div class="card">
-                                        <img src="https://www.shutterstock.com/image-photo/macro-closeup-organic-chhole-chana-260nw-1943723941.jpg"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Kabuli Channa</h3>
-                                    </div>
-
-                                       <div class="card">
-                                        <img src="https://healthymiller.com/cdn/shop/files/malkamasoor.png?v=1693908186"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Masoor Dal</h3>
-                                    </div>
+  <div class="popup-overlay" id="greenMoongWholePopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Green Moong Whole</h2>
+      <p>Whole Green Moong is rich in protein, iron, and magnesium.  
+      It aids metabolism, promotes healthy skin, and boosts overall energy.</p>
+    </div>
+  </div>
 
 
-                                     <div class="card">
-                                        <img src="https://t4.ftcdn.net/jpg/07/78/55/99/360_F_778559979_Y9cPiS7ZZ2eb60sgKKU3r4W2TK7kBzin.jpg"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Kaala Channa</h3>
-                                    </div>
-                                     <div class="card">
-                                        <img src="https://www.kuchpakrahahai.in/wp-content/uploads/2015/08/Air-fryer-peanuts-recipe.jpg"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Peanut</h3>
-                                    </div>
-                                     <div class="card">
-                                        <img src="https://pipagro.com/cdn/shop/files/52_f1e5355f-4f1e-471e-b012-b983371899b5.jpg?v=1720011858"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Ragi</h3>
-                                    </div>
+                                       <!-- TOOR DAL -->
+  <div class="card" id="toorCard">
+    <img src="https://farmveda.in/cdn/shop/files/hand-pounded-toor-dal-2-500x500_620x.webp?v=1705498098" alt="Toor Dal" class="card-image">
+    <h3 class="card-name">Toor Dal</h3>
+  </div>
 
-                                     <div class="card">
-                                        <img src="https://organicatman.com/cdn/shop/files/MALDANDIJOWARGRAINSWHOLE.png?v=1728890004"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Jowar</h3>
-                                    </div>
-                                     <div class="card">
-                                        <img src="https://www.govindjee.store/cdn/shop/files/pearl-millet-puff-bajra-puff-712479.jpg?v=1710972543"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Bajra</h3>
-                                    </div>
-                                     <div class="card">
-                                        <img src="https://idlibykilo.com/wp-content/uploads/2023/01/Channa-Dal-Chutney-450x450.jpg"
-                                            alt="Goldfish" class="card-image">
-                                        <h3 class="card-name">Chutney Channa</h3>
-                                    </div>
+  <!-- RAJMA -->
+  <div class="card" id="rajmaCard">
+    <img src="https://5.imimg.com/data5/ANDROID/Default/2023/4/301141027/AX/KR/SH/17720149/product-jpeg-500x500.jpg" alt="Rajma" class="card-image">
+    <h3 class="card-name">Rajma</h3>
+  </div>
+
+  <!-- URAD DAL -->
+  <div class="card" id="uradCard">
+    <img src="https://biobasics.org/cdn/shop/files/order-organic-urad-dal-without-skin-online-at-bio-basics.png?v=1755700272&width=300" alt="Urad Dal" class="card-image">
+    <h3 class="card-name">Urad Dal</h3>
+  </div>
+
+  <!-- URAD DAL GOTA -->
+  <div class="card" id="uradGotaCard">
+    <img src="https://organigram.in/wp-content/uploads/2024/01/organic-urad-gota-.webp" alt="Urad Dal Gota" class="card-image">
+    <h3 class="card-name">Urad Dal Gota (Whole)</h3>
+  </div>
+
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="toorPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Toor Dal</h2>
+      <p>Toor Dal is a staple lentil rich in protein and iron.  
+      It promotes heart health, supports weight control, and boosts immunity with essential nutrients.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="rajmaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Rajma</h2>
+      <p>Rajma (Kidney Beans) is high in protein, fiber, and antioxidants.  
+      It supports muscle growth, aids digestion, and helps maintain cholesterol levels.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="uradPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Urad Dal</h2>
+      <p>Urad Dal is rich in calcium, magnesium, and potassium.  
+      It strengthens bones, improves digestion, and enhances energy levels naturally.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="uradGotaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Urad Dal Gota (Whole)</h2>
+      <p>Urad Dal Gota (Whole) is a protein powerhouse.  
+      It improves heart health, supports muscle repair, and helps maintain overall body strength.</p>
+    </div>
+  </div>
+
+
+
+                                       <!-- Kabuli Channa -->
+  <div class="card" id="kabuliCard">
+    <img src="https://www.shutterstock.com/image-photo/macro-closeup-organic-chhole-chana-260nw-1943723941.jpg" alt="Kabuli Channa" class="card-image">
+    <h3 class="card-name">Kabuli Channa</h3>
+  </div>
+
+  <!-- Masoor Dal -->
+  <div class="card" id="masoorCard">
+    <img src="https://healthymiller.com/cdn/shop/files/malkamasoor.png?v=1693908186" alt="Masoor Dal" class="card-image">
+    <h3 class="card-name">Masoor Dal</h3>
+  </div>
+
+  <!-- Kaala Channa -->
+  <div class="card" id="kaalaCard">
+    <img src="https://t4.ftcdn.net/jpg/07/78/55/99/360_F_778559979_Y9cPiS7ZZ2eb60sgKKU3r4W2TK7kBzin.jpg" alt="Kaala Channa" class="card-image">
+    <h3 class="card-name">Kaala Channa</h3>
+  </div>
+
+  <!-- Peanut -->
+  <div class="card" id="peanutCard">
+    <img src="https://www.kuchpakrahahai.in/wp-content/uploads/2015/08/Air-fryer-peanuts-recipe.jpg" alt="Peanut" class="card-image">
+    <h3 class="card-name">Peanut</h3>
+  </div>
+
+  <!-- Ragi -->
+  <div class="card" id="ragiCard">
+    <img src="https://pipagro.com/cdn/shop/files/52_f1e5355f-4f1e-471e-b012-b983371899b5.jpg?v=1720011858" alt="Ragi" class="card-image">
+    <h3 class="card-name">Ragi</h3>
+  </div>
+
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="kabuliPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Kabuli Channa</h2>
+      <p>Kabuli Channa, also known as white chickpeas, is rich in protein, fiber, and iron. It helps in maintaining heart health and controlling blood sugar levels.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="masoorPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Masoor Dal</h2>
+      <p>Masoor Dal is a great source of plant-based protein and iron. It promotes muscle growth and supports overall immunity.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="kaalaPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Kaala Channa</h2>
+      <p>Kaala Channa is packed with fiber and antioxidants. It helps in weight management and keeps blood sugar levels stable.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="peanutPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Peanut</h2>
+      <p>Peanuts are rich in healthy fats and protein. They provide energy, improve heart health, and promote glowing skin.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="ragiPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Ragi</h2>
+      <p>Ragi, or finger millet, is rich in calcium and fiber. It strengthens bones, supports digestion, and helps in managing diabetes.</p>
+    </div>
+  </div>
+
+
+
+                                       <!-- Jowar -->
+  <div class="card" id="jowarCard">
+    <img src="https://organicatman.com/cdn/shop/files/MALDANDIJOWARGRAINSWHOLE.png?v=1728890004" alt="Jowar" class="card-image">
+    <h3 class="card-name">Jowar</h3>
+  </div>
+
+  <!-- Bajra -->
+  <div class="card" id="bajraCard">
+    <img src="https://www.govindjee.store/cdn/shop/files/pearl-millet-puff-bajra-puff-712479.jpg?v=1710972543" alt="Bajra" class="card-image">
+    <h3 class="card-name">Bajra</h3>
+  </div>
+
+  <!-- Chutney Channa -->
+  <div class="card" id="chutneyCard">
+    <img src="https://idlibykilo.com/wp-content/uploads/2023/01/Channa-Dal-Chutney-450x450.jpg" alt="Chutney Channa" class="card-image">
+    <h3 class="card-name">Chutney Channa</h3>
+  </div>
+
+  <!-- POPUPS -->
+  <div class="popup-overlay" id="jowarPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Jowar</h2>
+      <p>Jowar, also known as Sorghum, is a gluten-free grain rich in fiber, iron, and protein. It helps in improving digestion and maintaining steady blood sugar levels.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="bajraPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Bajra</h2>
+      <p>Bajra or Pearl Millet is loaded with essential minerals and antioxidants. It supports bone health, aids in digestion, and boosts energy levels naturally.</p>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="chutneyPopup">
+    <div class="popup-content">
+      <button class="close-btn">&times;</button>
+      <h2>Chutney Channa</h2>
+      <p>Chutney Channa is a protein-rich, crunchy snack made from roasted chickpeas. It promotes satiety, supports muscle health, and makes a perfect healthy snack option.</p>
+    </div>
+  </div>
+
+  <!-- JS FUNCTIONALITY -->
+<script>
+  const allCards = [
+    // First group
+    { card: 'chanaCard', popup: 'chanaPopup' },
+    { card: 'yellowMoongCard', popup: 'yellowMoongPopup' },
+    { card: 'greenMoongSplitCard', popup: 'greenMoongSplitPopup' },
+    { card: 'greenMoongWholeCard', popup: 'greenMoongWholePopup' },
+
+    // Second group
+    { card: 'toorCard', popup: 'toorPopup' },
+    { card: 'rajmaCard', popup: 'rajmaPopup' },
+    { card: 'uradCard', popup: 'uradPopup' },
+    { card: 'uradGotaCard', popup: 'uradGotaPopup' },
+
+    // Third group
+    { card: 'kabuliCard', popup: 'kabuliPopup' },
+    { card: 'masoorCard', popup: 'masoorPopup' },
+    { card: 'kaalaCard', popup: 'kaalaPopup' },
+    { card: 'peanutCard', popup: 'peanutPopup' },
+    { card: 'ragiCard', popup: 'ragiPopup' },
+
+    // Fourth group
+    { card: 'jowarCard', popup: 'jowarPopup' },
+    { card: 'bajraCard', popup: 'bajraPopup' },
+    { card: 'chutneyCard', popup: 'chutneyPopup' }
+  ];
+
+  allCards.forEach(({ card, popup }) => {
+    const cardEl = document.getElementById(card);
+    const popupEl = document.getElementById(popup);
+
+    if (!cardEl || !popupEl) return; // Skip if missing
+
+    const closeBtn = popupEl.querySelector('.close-btn');
+
+    // Open popup
+    cardEl.addEventListener('click', () => popupEl.classList.add('active'));
+
+    // Close popup (button or outside)
+    closeBtn.addEventListener('click', () => popupEl.classList.remove('active'));
+    popupEl.addEventListener('click', e => {
+      if (e.target === popupEl) popupEl.classList.remove('active');
+    });
+  });
+</script>
+
                                      <!-- <div class="card">
                                         <img src="https://specialtyproduce.com/sppics/13137.png"
                                             alt="Goldfish" class="card-image">

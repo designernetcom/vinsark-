@@ -53,24 +53,46 @@ if ($error === "") {
     $contactType = htmlspecialchars(trim($_POST['fav_language']));
     $message     = htmlspecialchars(trim($_POST['message']));
 
-    $mail = new PHPMailer(true);
+    // === Send to Google Sheets ===
+    $scriptURL = "https://script.google.com/macros/s/AKfycbwucNFmgRqis4x7t5TbkCmo6_4ZcEA2g6X9NMSAqhv7HFusx1MoLVSdHqTkOKVr6kK8/exec";
+    $data = array(
+        "name" => $name,
+        "mail" => $email,
+        "phone" => $phone,
+        "purpose" => $purpose,
+        "category" => $category,
+        "fav_language" => $contactType,
+        "message" => $message
+    );
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/json\r\n",
+            'method'  => 'POST',
+            'content' => json_encode($data)
+        )
+    );
+    $context  = stream_context_create($options);
+    @$result = file_get_contents($scriptURL, false, $context); // suppress warnings if fails
 
+    // === Send Email via PHPMailer ===
+    $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-     $mail->Username   = 'netcomenquiry@gmail.com'; 
-  $mail->Password   = 'nxhcgknjdzgthqpa';
+        $mail->Username   = 'netcomenquiry@gmail.com'; // your SMTP email
+        $mail->Password   = 'nxhcgknjdzgthqpa';       // use app password if Gmail
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = 465;
 
+        // Recipient & sender
         $mail->setFrom('info@vinsarkfoods.com', 'Vinsark Food Pvt Ltd');
         $mail->addReplyTo($email, $name);
-        $mail->addAddress('info@vinsarkfoods.com');
+        $mail->addAddress('info@vinsarkfoods.com'); // your company email
 
+        // Email content
         $mail->isHTML(true);
         $mail->Subject = 'Vinsark Food Pvt Ltd - New Contact Request';
-
         $mail->Body = "
             <html><body>
             <table border='1' cellpadding='10'>
@@ -83,40 +105,26 @@ if ($error === "") {
                 <tr><td><strong>Preferred Contact Method:</strong></td><td>$contactType</td></tr>
                 <tr><td><strong>Message:</strong></td><td>$message</td></tr>
             </table>
-              <style>
-           .channel{
-            background-color: #c9ded1 !important;
-        }
-    </style>
-
-</body></html>
+            </body></html>
         ";
 
-        if ($mail->send()) {
-            // === Confirmation email to user ===
-            $mail->clearAllRecipients();
-            $mail->addAddress($email);
-            $mail->Subject = 'Vinsark Food Pvt Ltd - Thank You';
-            $mail->Body = "
-                <html><body>
-                <h2>Thank you, $name!</h2>
-                <p>We’ve received your inquiry regarding <strong>$purpose</strong> in <strong>$category</strong>.</p>
-                <p>Our team will get in touch with you via your preferred method: <strong>$contactType</strong>.</p>
-                <br><p><strong>– Vinsark Food Pvt Ltd</strong></p>
-                  <style>
-           .channel{
-            background-color: #c9ded1 !important;
-        }
-    </style>
+        $mail->send();
 
-</body></html>
-            ";
-            $mail->send();
+        // === Optional: Confirmation email to user ===
+        $mail->clearAllRecipients();
+        $mail->addAddress($email);
+        $mail->Subject = 'Vinsark Food Pvt Ltd - Thank You';
+        $mail->Body = "
+            <html><body>
+            <h2>Thank you, $name!</h2>
+            <p>We’ve received your inquiry regarding <strong>$purpose</strong> in <strong>$category</strong>.</p>
+            <p>Our team will get in touch with you via your preferred method: <strong>$contactType</strong>.</p>
+            <br><p><strong>– Vinsark Food Pvt Ltd</strong></p>
+            </body></html>
+        ";
+        $mail->send();
 
-            echo "sent";
-        } else {
-            echo "Sorry, an error occurred while sending the form details.";
-        }
+        echo "sent";
     } catch (Exception $e) {
         echo "Mailer Error: " . $mail->ErrorInfo;
     }
